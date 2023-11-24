@@ -83,3 +83,13 @@ D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
 D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
 D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Humanizer.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\WebAPI_Project\bin\Debug\net7.0\System.CodeDom.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Scrutor.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+D:\WebAPI_Project\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

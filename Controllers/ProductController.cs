@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,13 +8,14 @@ using WebAPI_Project.Models;
 
 namespace WebAPI_Project.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
         private readonly MyAppDBContext _dbContext;
-        private IConfigurationRoot _configuration;
-        public ProductController(MyAppDBContext dbContext, IConfigurationRoot configuration)
+        private IConfiguration _configuration;
+        public ProductController(MyAppDBContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
             _configuration = configuration;
@@ -24,7 +26,8 @@ namespace WebAPI_Project.Controllers
         {
             try
             {
-                var products = _dbContext.Products.ToList();
+                //var products = _dbContext.Product.ToList();
+               var products = _dbContext.GetAllProducts();
                 if (products.Count == 0)
                 {
                     return NotFound("Data Not Found.");
@@ -42,7 +45,7 @@ namespace WebAPI_Project.Controllers
         {
             try
             {
-                var product = _dbContext.Products.Find(Id);
+                var product = _dbContext.Product.Find(Id);
                 if (product == null)
                 {
                     return NotFound("Product Data Not Found For the given Id");
@@ -86,7 +89,7 @@ namespace WebAPI_Project.Controllers
             }
             try
             {
-                var product = _dbContext.Products.Find(Model.Id);
+                var product = _dbContext.Product.Find(Model.Id);
                 if (product == null)
                 {
                     return NotFound($"Product id {Model.Id} is not found.");
@@ -107,12 +110,12 @@ namespace WebAPI_Project.Controllers
         {
             try
             {
-                var product = _dbContext.Products.Find(ProductId);
+                var product = _dbContext.Product.Find(ProductId);
                 if (product == null)
                 {
                     return NotFound($"Product Not Found.");
                 }
-                _dbContext.Products.Remove(product);
+                _dbContext.Product.Remove(product);
                 _dbContext.SaveChanges();
                 return Ok("Deleted Successfully.");
             }
