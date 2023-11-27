@@ -16,42 +16,15 @@ namespace WebAPI_Project.DAL
         public MyAppDBContext(DbContextOptions<MyAppDBContext> options) : base(options) 
         {
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
         public virtual DbSet<Product> Product { get; set; }
 
         public List<Product> GetAllProducts()
         {
             return Product.FromSqlRaw("EXEC dbo.GetProduct").ToList();
         }
-        public class ApplicationUser : IdentityUser
-        {
-            // Additional user properties
-        }
     }
-    //public class MyAppDBContext:DbContext
-    //{
-    //    public MyAppDBContext()
-    //    {
-
-    //    }
-    //    public MyAppDBContext(DbContextOptions<MyAppDBContext> options) : base(options) 
-    //    {
-    //    }
-    //    public virtual DbSet<Product> Product { get; set; }
-
-    //    public List<Product> GetAllProducts()
-    //    {
-    //        return Product.FromSqlRaw("EXEC dbo.GetProduct").ToList();
-    //    }
-    //}
-
-    //public class MyAppDBContext : IdentityDbContext<ApplicationUser>
-    //{
-    //    public MyAppDBContext(DbContextOptions<MyAppDBContext> options) : base(options)
-    //    {
-    //    }
-
-    //    public DbSet<Product> Products { get; set; }
-
-    //    // Optionally, add additional DbSets or customize as needed
-    //}
 }

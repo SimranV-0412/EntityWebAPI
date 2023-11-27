@@ -14,7 +14,7 @@ namespace WebAPI_Project.Controllers
     public class ProductController : ControllerBase
     {
         private readonly MyAppDBContext _dbContext;
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         public ProductController(MyAppDBContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
